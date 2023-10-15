@@ -1,0 +1,33 @@
+/* ========================================
+  Color Variables
+======================================== */
+// Canvas Color Variables
+// --------------------------------------------------
+$color-canvas-primary: #F4F4F4 !default;  // Soft gray for less harsh background
+$color-canvas-inverted: #2C2C2C !default; // Darker gray for inverted background
+
+// Brand Color Variables
+// --------------------------------------------------
+$color-brand-primary: #007BFF !default;  // Using Bootstrap's primary blue
+$color-brand-secondary: #6C757D !default; // Gray for secondary brand color
+$color-brand-tertiary: #28A745 !default;  // Green for tertiary
+
+// Text Color Variables
+// --------------------------------------------------
+$color-text-primary: #333 !default; // Keeping it same for readability
+$color-text-secondary: #7A7A7A !default; // Darker gray for better readability
+$color-text-tertiary: #6C757D !default; // Match with secondary brand color
+$color-text-inverted: #FFFFFF !default; // White for inverted text
+$color-text-link: #007BFF !default;  // Match with primary brand color
+$color-text-success: #28A745 !default;  // Match with tertiary brand color
+$color-text-warn: #FFC107 !default;  // Yellow for warnings
+$color-text-danger: #DC3545 !default;  // Red for danger actions or alerts
+
+// UI Color Variables
+// --------------------------------------------------
+$color-ui-primary: #007BFF !default;  // Match with primary brand color
+$color-ui-secondary: #6C757D !default;  // Match with secondary brand color
+$color-ui-tertiary: #28A745 !default;  // Match with tertiary brand color
+$color-ui-success: #28A745 !default;  // Green for successful actions
+$color-ui-warn: #FFC107 !default;  // Yellow for warnings
+$color-ui-danger: #DC3545 !default;  // Red for danger actions or alerts

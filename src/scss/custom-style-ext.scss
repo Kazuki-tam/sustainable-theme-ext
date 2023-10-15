@@ -1,0 +1,7 @@
+@charset "utf-8";
+// This file is used to import all the custom styles and then compile them into a single CSS file,
+// which is output to 'extensions/theme-custom-ext/assets'.
+// =========================================
+// Foundation
+// =========================================
+@use "./foundation/base";
