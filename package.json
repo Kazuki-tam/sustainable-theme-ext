@@ -2,6 +2,7 @@
   "name": "sustainable-theme-ext",
   "version": "0.0.1",
   "license": "MIT",
+  "description": "This template is specialized for customizing Shopify themes.",
   "scripts": {
     "shopify": "shopify",
     "preBuild": "npm-run-all clean copy -p build rspack:prd",
