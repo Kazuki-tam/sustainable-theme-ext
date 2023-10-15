@@ -1,18 +1,22 @@
 {
-  "name": "shopify-theme-custom-ext",
+  "name": "sustainable-theme-ext",
   "version": "0.0.1",
   "license": "MIT",
   "scripts": {
     "shopify": "shopify",
-    "build": "npm-run-all clean copy -p 'build:*'",
+    "build": "npm-run-all clean copy -p 'build:*' rspack:prd",
     "build:shopify": "shopify app build",
-    "build:sass": "cross-env NODE_ENV=development npm-run-all sass:dev postCss",
-    "dev": "npm-run-all -p copy-watch 'dev:*' sass:watch css:watch",
+    "build:sass": "cross-env NODE_ENV=production npm-run-all sass:prd postCss",
+    "dev": "npm-run-all -p 'dev:*' copy:watch rspack:watch sass:watch css:watch",
     "dev:shopify": "shopify app dev",
     "info": "shopify app info",
     "generate": "shopify app generate",
     "extension": "shopify app generate extension",
-    "deploy": "shopify app deploy",
+    "deploy": "npm-run-all build -p 'deploy:*'",
+    "deploy:shopify": "shopify app deploy",
+    "rspack:watch": "cross-env NODE_ENV=development rspack --config config/rspack.config.js --watch",
+    "rspack:dev": "cross-env NODE_ENV=development rspack --config config/rspack.config.js",
+    "rspack:prd": "cross-env NODE_ENV=production rspack --config config/rspack.config.js",
     "css:watch": "npm-run-all -p sass:watch postCss:watch",
     "sass:watch": "sass ./src/scss:extensions/theme-custom-ext/assets/ --watch",
     "sass:dev": "sass ./src/scss:extensions/theme-custom-ext/assets/ --no-unicode",
@@ -21,7 +25,7 @@
     "postCss:watch": "postcss ./extensions/**/*.css --base ./extensions/ --dir ./extensions/ --watch --config config/.postcssrc.js",
     "clean": "rimraf ./extensions",
     "copy": "cpx './src/extensions/**/*' './extensions/'",
-    "copy-watch": "cpx './src/extensions/**/*' './extensions/' --watch"
+    "copy:watch": "cpx './src/extensions/**/*' './extensions/' --watch"
   },
   "dependencies": {
     "@shopify/app": "3.49.6",
@@ -29,6 +33,7 @@
   },
   "author": "Kazuki Yonemoto (https://dev.to/tim_yone)",
   "devDependencies": {
+    "@rspack/cli": "^0.3.6",
     "autoprefixer": "^10.4.16",
     "cpx": "^1.5.0",
     "cross-env": "^7.0.3",
