@@ -1,16 +1,15 @@
-# Shopify App Template - None (app with extensions only)
+# Sustainable Shopify Theme Customization Environment (Shopify App Template - Only App Extensions)
 
-This is a template for building a [Shopify app](https://shopify.dev/docs/apps/getting-started) that includes no app home UI. It contains the basics for building a Shopify app that uses only app extensions.
+This is a template for building a [Shopify app](https://shopify.dev/docs/apps/getting-started) that includes no app home UI.
+It contains the basics for building a Shopify app that uses only app extensions. This template is specialized for customizing Shopify themes.
 
-**If you plan for your app to load its own page in the Shopify Admin, then you'll want to choose one of our other templates.**
+**This template is still in alpha and is in the testing phase.**
 
-Whether you choose to use this template or another one, you can use your preferred package manager and the Shopify CLI with [these steps](#installing-the-template).
+[📖 Learn more extension-only apps](https://shopify.dev/docs/apps/app-extensions/extension-only-apps)
 
 ## Benefits
 
-Shopify apps are built on a variety of Shopify tools to create a great merchant experience. The [create an app](https://shopify.dev/docs/apps/getting-started/create) tutorial in our developer documentation will guide you through creating a Shopify app.
-
-This app template does little more than install the CLI and scaffold a respository.
+Utilizing this template allows for theme customization on Shopify without the need to directly modify existing theme files.
 
 ## Getting started
 
@@ -22,53 +21,65 @@ This app template does little more than install the CLI and scaffold a resposito
 
 ### Installing the template
 
-This template can be installed using your preferred package manager:
-
-Using yarn:
+Clone this repository and install dependencies.
 
 ```shell
-yarn create @shopify/app
+pnpm install
 ```
 
-Using npm:
+### Setting up the app
+Seetiiing up the app requires the following steps:
+
+#### Create a new app
+1. Create a new app in your [Shopify Partners dashboard](https://partners.shopify.com/organizations).
+2. Copy Client ID from the app you just created.
+
+#### Configure the app in the local
+
+Create a `shopify.app.toml` at the root directory. This file contains the configuration for your app.
+
+Replace `<YOUR_CLIENT_ID>` with the Client ID you copied from the app you just created.
+
+```toml
+name = "theme-custom-app"
+client_id = "<YOUR_CLIENT_ID>"
+application_url = "https://shopify.dev/apps/default-app-home"
+embedded = true
+
+[access_scopes]
+
+scopes = ""
+
+[auth]
+redirect_urls = [ "https://shopify.dev/apps/default-app-home/api/auth" ]
+
+[webhooks]
+api_version = "2023-10"
+
+[pos]
+embedded = false
+```
+
+[📖 Learn more app configuration](https://shopify.dev/docs/apps/tools/cli/configuration)
+
+### Local Development
+
+Build the app and start the server.
 
 ```shell
-npm init @shopify/app@latest
+pnpm build
+pnpm dev
 ```
 
-Using pnpm:
+Open the URL generated in your console. Once you grant permission to the app, you can start development.
+
+### Manual deployment
+
+Build and deploy the app to Shopify with a command.
 
 ```shell
-pnpm create @shopify/app@latest
+pnpm deployAll
 ```
-
-This will clone the template and install the required dependencies.
-
-#### Local Development
-
-[The Shopify CLI](https://shopify.dev/docs/apps/tools/cli) connects to an app in your Partners dashboard. It provides environment variables and runs commands in parallel..
-
-You can develop locally using your preferred package manager. Run one of the following commands from the root of your app.
-
-Using yarn:
-
-```shell
-yarn dev
-```
-
-Using npm:
-
-```shell
-npm run dev
-```
-
-Using pnpm:
-
-```shell
-pnpm run dev
-```
-
-Open the URL generated in your console. Once you grant permission to the app, you can start development (such as generating extensions).
 
 ## Developer resources
 
@@ -76,4 +87,9 @@ Open the URL generated in your console. Once you grant permission to the app, yo
 - [App authentication](https://shopify.dev/docs/apps/auth)
 - [Shopify CLI](https://shopify.dev/docs/apps/tools/cli)
 - [Shopify API Library documentation](https://github.com/Shopify/shopify-api-js#readme)
+
+## Reference
+
+- [Shopify App Template - None (app with extensions only)](https://github.com/Shopify/shopify-app-template-none)
+
 

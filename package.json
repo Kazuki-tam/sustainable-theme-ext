@@ -4,17 +4,17 @@
   "license": "MIT",
   "scripts": {
     "shopify": "shopify",
-    "build": "npm-run-all clean copy -p 'build:*' rspack:prd",
-    "build:shopify": "shopify app build",
+    "preBuild": "npm-run-all clean copy -p build rspack:prd",
+    "build": "shopify app build",
     "build:sass": "cross-env NODE_ENV=production npm-run-all sass:prd postCss",
-    "dev": "npm-run-all -p 'dev:*' copy:watch rspack:watch sass:watch css:watch",
-    "dev:shopify": "shopify app dev",
+    "start": "npm-run-all -p dev copy:watch rspack:watch sass:watch css:watch",
+    "dev": "shopify app dev",
     "info": "shopify app info",
     "generate": "shopify app generate",
-    "extension": "shopify app generate extension",
-    "deploy": "npm-run-all build -p 'deploy:*'",
-    "deploy:shopify": "shopify app deploy",
-    "rspack:watch": "cross-env NODE_ENV=development rspack --config config/rspack.config.js --watch",
+    "deployAll": "npm-run-all preBuild deploy:no-release",
+    "deploy": "shopify app deploy",
+    "deploy:no-release": "shopify app deploy --no-release",
+    "rspack:watch": "cross-env NODE_ENV=production rspack --config config/rspack.config.js --watch",
     "rspack:dev": "cross-env NODE_ENV=development rspack --config config/rspack.config.js",
     "rspack:prd": "cross-env NODE_ENV=production rspack --config config/rspack.config.js",
     "css:watch": "npm-run-all -p sass:watch postCss:watch",
@@ -28,8 +28,8 @@
     "copy:watch": "cpx './src/extensions/**/*' './extensions/' --watch"
   },
   "dependencies": {
-    "@shopify/app": "3.49.6",
-    "@shopify/cli": "3.49.6"
+    "@shopify/app": "3.49.7",
+    "@shopify/cli": "3.49.7"
   },
   "author": "Kazuki Yonemoto (https://dev.to/tim_yone)",
   "devDependencies": {
