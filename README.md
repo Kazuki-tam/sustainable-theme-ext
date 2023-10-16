@@ -36,42 +36,18 @@ Seetiiing up the app requires the following steps:
 
 #### Configure the app in the local
 
-Create a `shopify.app.toml` at the root directory. This file contains the configuration for your app.
-
-Replace `<YOUR_CLIENT_ID>` with the Client ID you copied from the app you just created.
-
-```toml
-name = "theme-custom-app"
-client_id = "<YOUR_CLIENT_ID>"
-application_url = "https://shopify.dev/apps/default-app-home"
-embedded = true
-
-[access_scopes]
-
-scopes = ""
-
-[auth]
-redirect_urls = [ "https://shopify.dev/apps/default-app-home/api/auth" ]
-
-[webhooks]
-api_version = "2023-10"
-
-[pos]
-embedded = false
-```
-
-[📖 Learn more app configuration](https://shopify.dev/docs/apps/tools/cli/configuration)
-
-### Local Development
-
-Build the app and start the server.
+The following command performs the initial setup of the app via the command line when run for the first time.
 
 ```shell
-pnpm build
+pnpm preBuild
 pnpm start
 ```
 
 Open the URL generated in your console. Once you grant permission to the app, you can start development.
+
+`shopify.app.toml` is created in the root directory. This file contains the app configuration.
+
+[📖 Learn more app configuration](https://shopify.dev/docs/apps/tools/cli/configuration)
 
 ### Manual deployment
 
@@ -81,7 +57,7 @@ Build and deploy the app to Shopify with a command.
 pnpm deployAll
 ```
 
-## Available Commands
+## Available commands
 Recommend you to check out these commands before you get started.
 
 <details>
