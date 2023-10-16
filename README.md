@@ -68,7 +68,7 @@ Build the app and start the server.
 
 ```shell
 pnpm build
-pnpm dev
+pnpm start
 ```
 
 Open the URL generated in your console. Once you grant permission to the app, you can start development.
@@ -80,6 +80,41 @@ Build and deploy the app to Shopify with a command.
 ```shell
 pnpm deployAll
 ```
+
+## Available Commands
+Recommend you to check out these commands before you get started.
+
+<details>
+<summary>Support commands</summary>
+
+### Dev command
+Builds the app and lets you preview it on a development store or Plus sandbox store.
+
+```shell
+pnpm dev
+```
+
+### Start command
+Start your project in development mode.
+
+```shell
+pnpm start
+```
+
+### Deply command
+Builds the app and deploys all of the extensions in your app to Shopify.
+
+```shell
+pnpm deply
+```
+
+### DeployAll command
+Pre-build this project, then build the app and deploy all its extensions to Shopify.
+
+```shell
+pnpm deployAll
+```
+</details>
 
 ## Developer resources
 
