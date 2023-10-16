@@ -28,7 +28,7 @@ pnpm install
 ```
 
 ### Setting up the app
-Seetiiing up the app requires the following steps:
+Setting up the app requires the following steps:
 
 #### Configure the app in the local
 
