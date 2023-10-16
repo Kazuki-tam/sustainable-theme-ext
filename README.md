@@ -30,10 +30,6 @@ pnpm install
 ### Setting up the app
 Seetiiing up the app requires the following steps:
 
-#### Create a new app
-1. Create a new app in your [Shopify Partners dashboard](https://partners.shopify.com/organizations).
-2. Copy Client ID from the app you just created.
-
 #### Configure the app in the local
 
 The following command performs the initial setup of the app via the command line when run for the first time.
